@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="WINDOWS-1251"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="JDI-Light Examples" parallel="methods" thread-count="1">
-    <listeners>
-        <listener class-name="io.github.epam.testng.TestNGListener"/>
-    </listeners>
-    <test name="Root">
-        <classes>
-            <class name="io.github.epam.tests.RootTests"/>
-        </classes>
-    </test>
+<suite name="JDI-Light Performance" parallel="classes" thread-count="6">
     <test name="Tests">
         <packages>
-            <package name="io.github.epam.tests.epam"/>
-            <package name="io.github.epam.tests.google"/>
-            <package name="io.github.epam.tests.composite"/>
-            <package name="io.github.epam.tests.selenium"/>
-            <package name="io.github.epam.tests.smart.path"/>
+            <package name="org.mytests.tests.example"/>
         </packages>
     </test>
+    <listeners>
+        <listener class-name="org.mytests.tests.testng.TestNGListener" />
+        <listener class-name="org.mytests.tests.testng.RetryListenerClass"/>
+    </listeners>
 </suite>

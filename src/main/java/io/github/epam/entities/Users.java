@@ -10,7 +10,7 @@ public class Users {
         u.lastName = "Ivanov";
         u.position = "Programmer";
         u.passportNumber = "0129";
-        u.passportSeries = "999999";
+        u.passportSeria = "999999";
         u.description = "This world is full of unsolved mysteries";
         u.gender = "Male";
     });

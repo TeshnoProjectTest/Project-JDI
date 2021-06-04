@@ -4,5 +4,5 @@ import com.epam.jdi.tools.DataClass;
 
 public class User extends DataClass<User> {
     public String name = "Roman", firstName = "Roman", password = "Jdi1234", lastName,
-            position, passportNumber, passportSeries, description, gender;
+            position, passportNumber, passportSeria, description, gender;
 }

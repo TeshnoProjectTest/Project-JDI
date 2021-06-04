@@ -12,7 +12,7 @@
     <test name="Tests">
         <packages>
             <package name="io.github.epam.tests.epam"/>
-            <package name="io.github.epam.tests.google"/>
+            <package name="io.github.epam.tests.search"/>
             <package name="io.github.epam.tests.composite"/>
             <package name="io.github.epam.tests.selenium"/>
             <package name="io.github.epam.tests.smart.path"/>

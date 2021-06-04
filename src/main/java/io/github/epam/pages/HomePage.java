@@ -7,7 +7,10 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import org.openqa.selenium.WebElement;
 
 public class HomePage extends WebPage {
-	@Css("h3[name='main-title']") public WebElement mainTitle;
-	@Css(".main-txt") public UIElement jdiText;
-	@UI("['JDI Github']") public WebElement githubLink;
+    @Css("h3[name='main-title']")
+    public WebElement homeTitle;
+    @Css(".main-txt")
+    public UIElement jdiText;
+    @UI("['JDI Github']")
+    public WebElement githubLink;
 }

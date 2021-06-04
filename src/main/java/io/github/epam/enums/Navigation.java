@@ -1,8 +1,5 @@
 package io.github.epam.enums;
 
-/**
- * Created by Roman_Iovlev on 3/2/2018.
- */
 public enum Navigation {
     Home,
     ContactForm("Contact form"),
@@ -17,6 +14,12 @@ public enum Navigation {
     MetalsColors("Metals & Colors");
 
     public String value;
-    Navigation() { value = toString(); }
-    Navigation(String value) { this.value = value; }
+
+    Navigation() {
+        value = toString();
+    }
+
+    Navigation(String value) {
+        this.value = value;
+    }
 }

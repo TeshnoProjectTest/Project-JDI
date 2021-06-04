@@ -13,7 +13,6 @@ import static io.github.epam.tests.composite.steps.Preconditions.shouldBeLoggedI
 import static io.github.epam.tests.composite.steps.Preconditions.shouldBeLoggedOut;
 
 public class FormsTests extends StaticTestsInit {
-
     @Test
     public void loginTest() {
         shouldBeLoggedOut();

@@ -10,7 +10,6 @@ import static com.epam.jdi.light.settings.WebSettings.logger;
 import static io.github.com.StaticSite.homePage;
 
 public class StaticTestsInit {
-
     @BeforeSuite(alwaysRun = true)
     public static void setUp() {
         initSite(StaticSite.class);

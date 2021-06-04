@@ -1,4 +1,4 @@
-package io.github.epam.tests.google;
+package io.github.epam.tests.search;
 
 import io.github.epam.StaticTestsInit;
 import org.testng.Assert;
@@ -8,13 +8,12 @@ import org.testng.annotations.Test;
 import static com.epam.jdi.light.settings.JDISettings.TIMEOUTS;
 import static io.github.com.StaticSite.homePage;
 import static io.github.com.pages.Header.search;
-import static io.github.com.pages.SearchPage.jsearchTitle;
+import static io.github.com.pages.SearchPage.jSearchTitle;
 import static io.github.epam.tests.composite.steps.Preconditions.shouldBeLoggedIn;
 import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.assertEquals;
 
 public class WaitJListTests extends StaticTestsInit {
-
     @BeforeMethod
     public void before() {
         homePage.shouldBeOpened();
@@ -23,36 +22,30 @@ public class WaitJListTests extends StaticTestsInit {
     }
 
     @Test
-    public void isNotEmptyTest() {
-        jsearchTitle.is().notEmpty();
-    }
-
-    @Test
-    public void notEmptyAssertThatTest() {
-        jsearchTitle.assertThat(not(empty()));
+    public void notEmptyTest() {
+        jSearchTitle.assertThat(not(empty()));
     }
 
     @Test
     public void emptyTest() {
-        jsearchTitle.waitSec(2);
+        jSearchTitle.waitSec(2);
         try {
-            jsearchTitle.is().empty();
+            jSearchTitle.is().empty();
             Assert.fail("List should not be empty");
-        } catch (Throwable ignored) { }
-        finally {
-            jsearchTitle.waitSec(TIMEOUTS.element.get());
+        } catch (Throwable ex) {
+        } finally {
+            jSearchTitle.waitSec(TIMEOUTS.element.get());
         }
     }
 
     @Test
     public void sizeTest() {
-        assertEquals(jsearchTitle.size(), 6);
-        jsearchTitle.has().size(equalTo(8));
+        assertEquals(jSearchTitle.size(), 6);
+        jSearchTitle.has().size(equalTo(8));
     }
 
     @Test
     public void sizeNotEmptyTest() {
-        jsearchTitle.has().size(greaterThan(7));
+        jSearchTitle.has().size(greaterThan(7));
     }
-
 }

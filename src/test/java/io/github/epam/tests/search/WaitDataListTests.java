@@ -1,4 +1,4 @@
-package io.github.epam.tests.google;
+package io.github.epam.tests.search;
 
 import io.github.epam.StaticTestsInit;
 import org.testng.annotations.BeforeMethod;
@@ -12,7 +12,6 @@ import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.assertEquals;
 
 public class WaitDataListTests extends StaticTestsInit {
-
     @BeforeMethod
     public void before() {
         homePage.shouldBeOpened();
@@ -22,11 +21,6 @@ public class WaitDataListTests extends StaticTestsInit {
 
     @Test
     public void notEmptyTest() {
-        searchS.is().notEmpty();
-    }
-
-    @Test
-    public void notEmptyAssertThatTest() {
         searchS.assertThat(not(empty()));
     }
 
@@ -40,5 +34,4 @@ public class WaitDataListTests extends StaticTestsInit {
     public void sizeGreaterTest() {
         searchS.has().size(greaterThan(7));
     }
-
 }

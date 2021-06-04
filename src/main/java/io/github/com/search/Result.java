@@ -1,4 +1,4 @@
-package io.github.com.custom;
+package io.github.com.search;
 
 import com.epam.jdi.tools.DataClass;
 

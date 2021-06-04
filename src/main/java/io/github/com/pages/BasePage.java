@@ -1,9 +1,10 @@
 package io.github.com.pages;
 
-import com.epam.jdi.light.elements.composite.WebPage;
+import com.epam.jdi.light.elements.interfaces.composite.PageObject;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import org.openqa.selenium.WebElement;
 
-public class BasePage extends WebPage {
-    @Css("h3[name='test']") public WebElement testField;
+public class BasePage implements PageObject {
+    @Css("h3[name='test-page-object']")
+    public WebElement testField;
 }

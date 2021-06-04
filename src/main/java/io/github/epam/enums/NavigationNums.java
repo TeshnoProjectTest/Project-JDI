@@ -1,8 +1,5 @@
 package io.github.epam.enums;
 
-/**
- * Created by Roman_Iovlev on 3/2/2018.
- */
 public class NavigationNums {
     public static int nHome = 1;
     public static int nContactForm = 2;

@@ -18,8 +18,7 @@ import static io.github.epam.enums.NavigationNums.nHome;
 import static io.github.epam.tests.composite.steps.Preconditions.shouldBeLoggedIn;
 import static org.hamcrest.Matchers.containsString;
 
-public class ComplexElements3Tests extends StaticTestsInit {
-
+public class ComplexElementsTests extends StaticTestsInit {
     @BeforeMethod
     public void before() {
         shouldBeLoggedIn();
@@ -27,21 +26,16 @@ public class ComplexElements3Tests extends StaticTestsInit {
     }
 
     @Test
-    public void pageParamsTest() {
-        metalAndColorsPageParams.open("?");
-        metalAndColorsPageParams.shouldBeOpened("?");
-        metalAndColorsPageParams.checkOpened();
-    }
-    @Test
     public void complexXpathTest() {
         colorsXpath.select(Green);
     }
+
     @Test
     public void complexTest() {
         colors.select(Green);
         metals.select(Gold);
-        //metalAndColorsPage.vegetables.check(Onion, Tomato);
     }
+
     @Test
     public void navigationListTest() {
         navigation.get(nContactForm).click();
@@ -51,6 +45,7 @@ public class ComplexElements3Tests extends StaticTestsInit {
         githubLink.click();
         originalWindow();
     }
+
     @Test
     public void navigationMenuTest() {
         navigationL.select(ContactForm);
@@ -60,6 +55,7 @@ public class ComplexElements3Tests extends StaticTestsInit {
         navigationL.select(Service);
         navigationL.select(ComplexTable);
     }
+
     @Test
     public void navigationMenuTemplate() {
         navigationS.select(ContactForm);

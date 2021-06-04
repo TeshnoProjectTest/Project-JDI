@@ -1,8 +1,8 @@
-package io.github.epam.tests.google;
+package io.github.epam.tests.search;
 
 import com.epam.jdi.light.elements.complex.DataList;
-import io.github.com.custom.Result;
-import io.github.com.custom.SearchResult;
+import io.github.com.search.Result;
+import io.github.com.search.SearchResult;
 import io.github.epam.StaticTestsInit;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -19,30 +19,32 @@ import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.assertEquals;
 
 
-public class ElementsGoogleTests extends StaticTestsInit {
+public class ElementsSearchTests extends StaticTestsInit {
     @BeforeMethod
     public void before() {
         shouldBeLoggedIn();
         epamLogo.click();
         search("jdi");
     }
+
     @Test
     public void validateEntitiesTests() {
-        DataList<SearchResult, Result> jobs = searchPage.search;
+        DataList<SearchResult, Result> jobs = searchPage.firstSearchResults;
 
         jobs.assertThat(not(empty()))
-            .and(hasSize(greaterThan(2)))
-            .and(hasItem(CORRECT))
-            .and(hasItems(CORRECT, CORRECT_2, CORRECT_3))
-            .and(not(hasItem(CORRUPTED)))
-            .and(not(hasItems(CORRUPTED, CORRUPTED_2)));
+                .and(hasSize(greaterThan(2)))
+                .and(hasItem(CORRECT))
+                .and(hasItems(CORRECT_2, CORRECT_3))
+                .and(not(hasItem(WRONG)))
+                .and(not(hasItems(WRONG, WRONG_2)));
     }
-    @Test
-    public void validateEntities2Tests() {
-        DataList<SearchResult, ?> jobs = searchPage.search2;
 
-        assertEquals(jobs.get(ELEMENT.startIndex).name.getText(),"JDI SKYPE");
-        assertEquals(jobs.get(ELEMENT.startIndex + 1).name.getText(),"JDI OWNER CONTACT");
+    @Test
+    public void validateMoreEntitiesTests() {
+        DataList<SearchResult, ?> jobs = searchPage.secondSearchResults;
+
+        assertEquals(jobs.get(ELEMENT.startIndex).name.getText(), "JDI SKYPE");
+        assertEquals(jobs.get(ELEMENT.startIndex + 1).name.getText(), "JDI OWNER CONTACT");
         try {
             jobs.is().empty();
             Assert.fail("List should not be empty");
@@ -55,14 +57,13 @@ public class ElementsGoogleTests extends StaticTestsInit {
 
     @Test
     public void validateFilterTests() {
-        DataList<SearchResult, Result> jobs = searchPage.search;
+        DataList<SearchResult, Result> jobs = searchPage.firstSearchResults;
 
         jobs.assertThat().value(containsString(
-            "name:JDI FACEBOOK GROUP; description:English Community Facebook group"))
-            .any(e -> e.description.toLowerCase().contains("jdi"))
-            .each(e -> e.name.toLowerCase().contains("jdi"))
-            .onlyOne(e -> e.name.contains("OWNER"))
-            .noOne(e -> e.name.equalsIgnoreCase("Selenide"));
+                "name:JDI FACEBOOK GROUP; description:English Community Facebook group"))
+                .any(e -> e.description.toLowerCase().contains("jdi"))
+                .each(e -> e.name.toLowerCase().contains("jdi"))
+                .onlyOne(e -> e.name.contains("OWNER"))
+                .noOne(e -> e.name.equalsIgnoreCase("Selenium"));
     }
-
 }

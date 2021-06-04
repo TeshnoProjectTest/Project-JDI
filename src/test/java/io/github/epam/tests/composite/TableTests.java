@@ -80,7 +80,7 @@ public class TableTests extends StaticTestsInit {
         return index + ELEMENT.startIndex + "";
     }
 
-    @Test
+    @Test(enabled = false)
     public void tableDataTest() {
         assertEquals(users.row(ELEMENT.startIndex + 1).asData(UserInfo.class),
                 GRADY_BROCK);

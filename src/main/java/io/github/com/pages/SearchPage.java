@@ -12,8 +12,6 @@ public class SearchPage extends BasePage {
     @Css(".box")
     public DataList<SearchResult, Result> firstSearchResults;
     @Css(".box")
-    public DataList<SearchResult, ?> secondSearchResults;
-    @Css(".box")
     @WaitTimeout(3)
     public static DataList<SearchResult, ?> searchS;
     @Css(".box h3")
